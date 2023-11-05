@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ข้อมูลส่วนตัว</title>
+  </head>
+  <body>
+    <h1>ข้อมูลส่วนตัว</h1>
+    <form action="process.php" method="post">
+      <fieldset>
+        <legend>ข้อมูลส่วนตัว</legend>
+        <div>
+          <p align = 'center'>
+            <label>ชื่อ: </label>
+            <input type="text" name="ชื่อ" placeholder="ชื่อ" />
+          </p>
+          <p align = 'center'>
+            <label>นามสกุล: </label>
+            <input type="text" name="นามสกุล" placeholder="นามสกุล" />
+          </p>
+          <p align = 'center'>
+            <label>อีเมล: </label>
+            <input type="email" name="อีเมล" placeholder="อีเมล" />
+          </p>
+          <p align = 'center'>
+            <label>เพศ: </label>
+            <input type="radio" name="sex" value="man" placeholder="men"/>
+            <label>ชาย</label>
+            <input type="radio" name="sex" value="woman" placeholder="woman" />
+            <label>หญิง</label>
+          </p>
+          <p align = 'center'>
+            <label>รายได้: </label>
+            <select id= "sarary" >
+                <option>ไม่มีรายได้</option>
+                <option>15000 บาท</option>
+                <option>มากกว่า 15000 บาท</option>
+            </select>
+          </p>
+          <p align = 'center'>
+            <input type="submit" value="สมัครสมาชิก"/>
+          </p>
+        </div>
+      </fieldset>
+    </form>
+  </body>
+</html>

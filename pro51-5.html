@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>สมัครสมาชิก</title>
+  </head>
+  <body>
+    <form action="process.php" method="post">
+      <fieldset>
+        <legend>สมัครสมาชิก</legend>
+        <p>
+          <label>ชื่อ : </label>
+          <input type="text" name="firstname" placeholder="ชื่อ" />
+        </p>
+        <p>
+          <label>นามสกุล: </label>
+          <input type="text" name="lastname" placeholder="นามสกุล" />
+        </p>
+        <p>
+          <label>เพศ: </label>
+          <select id="sex">
+            <option>ชาย</option>
+            <option>หญิง</option>
+          </select>
+        </p>
+        <input type="submit" value="Submit" />
+      </fieldset>
+    </form>
+  </body>
+</html>

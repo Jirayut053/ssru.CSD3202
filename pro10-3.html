@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>salary</title>
+</head>
+
+<body align="center">
+    <h1>โปรแกรมคำนวณภาษีเงินได้</h1>
+    <label for="salary">เงินเดือน (ต่อเดือน):</label>
+    <input type="number" id="salary"><br>
+
+    <button onclick="money()">คำนวณ</button>
+    <p id="deduction"></p>
+    <p id="taxrate"></p>
+    <p id="taxs"></p>
+    <script>
+        function money() {
+            var tax; //เทียบภาษี
+            var salary = parseInt(document.getElementById("salary").value);
+            var salaryAnnual = salary * 12;
+            var finalSalary = salaryAnnual;
+            var t1 = Math.max(salaryAnnual * 0.4, 60000); //-40% ,max 60000
+            finalSalary -= t1;
+            finalSalary -= 30000;
+            if (finalSalary <= 150000) {
+                document.getElementById("deduction").textContent = "จำนวนเงินหลังค่าลดหย่อน: " + finalSalary;
+                document.getElementById("taxrate").textContent = "อัตราภาษี = ยกเว้น";
+                document.getElementById("taxs").textContent = "ภาษีเงินได้ = 0";
+            } else if (finalSalary > 150000 && finalSalary <= 300000) {
+                document.getElementById("deduction").textContent = "จำนวนเงินหลังค่าลดหย่อน: " + finalSalary;
+                var tax = (finalSalary * 0.05);
+                document.getElementById("taxrate").textContent = "อัตราภาษี = 5%";
+                document.getElementById("taxs").textContent = "ภาษีเงินได้ = " + tax;
+            } else if (finalSalary > 300000 && finalSalary <= 500000) {
+                document.getElementById("deduction").textContent = "จำนวนเงินหลังค่าลดหย่อน: " + finalSalary;
+                var tax = (finalSalary * 0.15);
+                document.getElementById("taxrate").textContent = "อัตราภาษี = 15%";
+                document.getElementById("taxs").textContent = "ภาษีเงินได้ = " + tax;
+            } else if (finalSalary > 500000 && finalSalary <= 750000) {
+                document.getElementById("deduction").textContent = "จำนวนเงินหลังค่าลดหย่อน: " + finalSalary;
+                var tax = (finalSalary * 0.20);
+                document.getElementById("taxrate").textContent = "อัตราภาษี = 20%";
+                document.getElementById("taxs").textContent = "ภาษีเงินได้ = " + tax;
+            } else if (finalSalary > 750000 && finalSalary <= 1000000) {
+                document.getElementById("deduction").textContent = "จำนวนเงินหลังค่าลดหย่อน: " + finalSalary;
+                var tax = (finalSalary * 0.25);
+                document.getElementById("taxrate").textContent = "อัตราภาษี = 25%";
+                document.getElementById("taxs").textContent = "ภาษีเงินได้ = " + tax;
+            } else if (finalSalary > 1000000 && finalSalary <= 2000000) {
+                document.getElementById("deduction").textContent = "จำนวนเงินหลังค่าลดหย่อน: " + finalSalary;
+                var tax = (finalSalary * 0.30);
+                document.getElementById("taxrate").textContent = "อัตราภาษี = 30%";
+                document.getElementById("taxs").textContent = "ภาษีเงินได้ = " + tax;
+            } else if (finalSalary > 2000000) {
+                document.getElementById("deduction").textContent = "จำนวนเงินหลังค่าลดหย่อน: " + finalSalary;
+                var tax = (finalSalary * 0.35);
+                document.getElementById("taxrate").textContent = "อัตราภาษี = 35%";
+                document.getElementById("taxs").textContent = "ภาษีเงินได้ = " + tax;
+            }
+        }
+    </script>
+</body>
+</html>

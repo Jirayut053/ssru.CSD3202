@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>โปรแกรมค่าสินค้า</title>
+</head>
+<body>
+    <h1>โปรแกรมค่าสินค้า</h1>
+    <label>จำนวนรายการสินค้า: </label>
+    <input type="number" id="numItems"><br><br>
+    <div id="itemDetails"></div>
+    <button onclick="calculateTotal()">คำนวณ</button><br><br>
+    <p id="totalPrice"></p>
+    <p id="discountAmount"></p>
+    <p id="netPrice"></p>
+    <script>
+        function calculateTotal() {
+            var numItems = parseInt(document.getElementById("numItems").value);
+            var itemDetailsElement = document.getElementById("itemDetails");
+            var totalPriceElement = document.getElementById("totalPrice");
+            var discountAmountElement = document.getElementById("discountAmount");
+            var netPriceElement = document.getElementById("netPrice");
+            var totalPrice = 0;
+            for (var i = 1; i <= numItems; i++) {
+                var itemName = prompt("ชื่อสินค้าที่ #" + i);
+                var itemPrice = parseFloat(prompt("ราคาสินค้า (บาท)"));
+                var itemQuantity = parseInt(prompt("จำนวนสินค้า"));
+                var itemTotal = itemPrice * itemQuantity;
+                totalPrice += itemTotal;
+                itemDetailsElement.innerHTML += "สินค้าที่ #" + i + ": " + itemName + " ราคา " + itemPrice.toFixed(2) + " บาท จำนวน " + itemQuantity + " เครื่อง = " + itemTotal.toFixed(2) + " บาท<br>";
+            }
+            var discount = 0;
+            if (totalPrice <= 10000) {
+                discount = totalPrice * 0.03;
+            } else if (totalPrice <= 100000) {
+                discount = totalPrice * 0.05;
+            } else {
+                discount = totalPrice * 0.10;
+            }
+            var netPrice = totalPrice - discount;
+            totalPriceElement.innerHTML = "รวมเป็นเงิน: " + totalPrice.toFixed(2) + " บาท";
+            discountAmountElement.innerHTML = "ส่วนลด " + (discount * 100 / totalPrice).toFixed(2) + "%: " + discount.toFixed(2) + " บาท";
+            netPriceElement.innerHTML = "จำนวนเงินสุทธิ: " + netPrice.toFixed(2) + " บาท";
+        }
+    </script>
+</body>
+</html>

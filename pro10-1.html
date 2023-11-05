@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Leap Year Checker</title>
+  </head>
+  <body>
+    <h1>Leap Year Checker</h1>
+    <p>ป้อนปีที่ต้องการตรวจสอบ:</p>
+    <input type="number" id="yearInput" />
+    <button onclick="checkLeapYear()">ตรวจสอบ</button>
+    <p id="result"></p>
+
+    <script>
+      function checkLeapYear() {
+        var year = document.getElementById("yearInput").value;
+
+        // เงื่อนไขสำหรับปีอธิกสุรทิน
+        if (((year-543) % 4 === 0 && (year-543) % 100 !== 0) || (year-543) % 400 === 0) {
+          document.getElementById("result").innerHTML =
+            "ปี" + year + " เป็นปีอธิกสุรทิน";
+        } else {
+          document.getElementById("result").innerHTML =
+            "ปี" + year + " ไม่เป็นปีอธิกสุรทิน";
+        }
+      }
+    </script>
+  </body>
+</html>

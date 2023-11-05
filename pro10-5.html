@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>โปรแกรมค่าเข้าชมนิทรรศการ</title>
+</head>
+<body>
+    <h1>โปรแกรมค่าเข้าชมนิทรรศการ</h1>
+    <label>จำนวนเพศชาย: </label>
+    <input type="number" id="numMale"><br><br>
+    <label>จำนวนเพศหญิง: </label>
+    <input type="number" id="numFemale"><br><br>
+    <button onclick="calculateTotal()">คำนวณ</button><br><br>
+    <p id="maleCost"></p>
+    <p id="femaleCost"></p>
+    <p id="discount"></p>
+    <p id="totalCost"></p>
+    <script>
+        function calculateTotal() {
+            var numMale = parseInt(document.getElementById("numMale").value);
+            var numFemale = parseInt(document.getElementById("numFemale").value);
+            var maleCostElement = document.getElementById("maleCost");
+            var femaleCostElement = document.getElementById("femaleCost");
+            var discountElement = document.getElementById("discount");
+            var totalCostElement = document.getElementById("totalCost");
+            var maleCost = numMale * 200;
+            var femaleCost = numFemale * 100;
+            var totalCost = maleCost + femaleCost;
+            var discount = 0;
+            if (numMale + numFemale > 10) {
+                discount = totalCost * 0.10;
+            }
+            totalCost -= discount;
+            maleCostElement.innerHTML = "ค่าเข้าชมเพศชาย " + numMale + " คน คนละ 200 บาท = " + maleCost + " บาท";
+            femaleCostElement.innerHTML = "ค่าเข้าชมเพศหญิง " + numFemale + " คน คนละ 100 บาท = " + femaleCost + " บาท";
+            discountElement.innerHTML = "จำนวนคนเข้าชมนิทรรศการ = " + (numMale + numFemale) + " คน " + (discount > 0 ? "ได้รับส่วนลด 10 %" : "");
+            totalCostElement.innerHTML = "จำนวนเงินรวม " + totalCost + " บาท";
+        }
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>BMI Calculator</title>
+</head>
+<body>
+    <h1>BMI Calculator</h1>
+    <p>ป้อนน้ำหนัก (กิโลกรัม):</p>
+    <input type="number" id="weightInput">
+    <p>ป้อนความสูง (เมตร):</p>
+    <input type="number" id="heightInput">
+    <p><button onclick="calculateBMI()">คำนวณ BMI</button></p>
+    <p id="result"></p>
+    <script>
+        function calculateBMI() {
+            var weight = parseFloat(document.getElementById("weightInput").value);
+            var height = parseFloat(document.getElementById("heightInput").value);
+            height = height/100;
+                var bmi = weight / (height * height);
+                document.getElementById("result").innerHTML = 
+                "ค่า BMI ของคุณคือ: " + bmi.toFixed(2); //toFixed(n) เป็นค่าทศนิยม n ตำแหน่ง
+                // การตรวจสอบช่วงของค่า BMI
+                if (bmi < 18.5) {
+                    document.getElementById("result").innerHTML += " (น้ำหนักต่ำกว่าเกณฑ์)";
+                } else if (bmi >= 18.5 && bmi < 23.5) {
+                    document.getElementById("result").innerHTML += " (อยู่ในเกณฑ์ปกติ)";
+                } else if (bmi >= 23.5 && bmi < 28.5) {
+                    document.getElementById("result").innerHTML += " (น้ำหนักเกิน)";
+                } else if (bmi >= 28.5 && bmi < 35){
+                    document.getElementById("result").innerHTML += " (อ้วนขั้นที่ 1)";
+                }else if (bmi >= 35 && bmi < 40){
+                    document.getElementById("result").innerHTML += " (อ้วนขั้นที่ 2)";
+                }else {
+                    document.getElementById("result").innerHTML += " (อ้วนขั้นสูงสุด)";
+                }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>คุณชอบรับประทานอะไรบ้าง</title>
+  </head>
+  <body>
+    <h1>คุณชอบรับประทานอะไรบ้าง</h1>
+    <form action="process.php" method="post">
+      <fieldset>
+        <legend>คุณชอบรับประทานอะไรบ้าง</legend>
+        <div>
+          <p>
+            <label>คุณชอบรับประทานอะไรบ้าง </label><br />
+            <input type="checkbox" id="food1" name="food1" value="banana" />
+            <label for="food1">กล้วย</label><br />
+            <input type="checkbox" id="food2" name="food2" value="maggo" />
+            <label for="food2">มะม่วง</label><br />
+            <input type="checkbox" id="food3" name="food3" value="grape" />
+            <label for="food3">องุ่น</label><br />
+          </p>
+          <p>
+            <label>คุณชอบอาหารไทยอะไรบ้าง </label><br />
+            <input type="checkbox" id="food4" name="food4" value="food4" />
+            <label for="food1">ข้าวเหนียวมะม่วง</label><br />
+            <input type="checkbox" id="food5" name="food5" value="food5" />
+            <label for="food2">พัดไทย</label><br />
+            <input type="checkbox" id="food6" name="food6" value="food6" />
+            <label for="food3">แกงเขียวหวาน</label><br />
+          </p>
+          <p>
+            <input type="submit" value="submit" />
+          </p>
+        </div>
+      </fieldset>
+    </form>
+  </body>
+</html>
